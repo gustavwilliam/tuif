@@ -6,6 +6,6 @@ class Color:
     """Class for managing colors.
 
     Args:
-        hex (str): Hexadecimal value of the color, without a leading "#".
+        hex (int): Hexadecimal value of the color.
     """
-    hex: str
+    hex: int
