@@ -14,3 +14,18 @@ class Shape:
     """
     fill: Color
     border: Border
+
+
+@dataclass
+class Rectangle(Shape):
+    """Class representing rectangles.
+
+    Args:
+        Shape: Base class for the shape
+            fill (str): Fill-color.
+            border (Border): Border.
+        width (int): Width in pixels.
+        height (int): Height in pixels.
+    """
+    width: int
+    height: int
