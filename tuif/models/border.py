@@ -8,12 +8,12 @@ from tuif.models.color import Color
 class Border:
     """Class for managing border objects.
 
-    :param width: Width, in pixels
-    :type width: int
-    :param color: Color of the border
-    :type color: :class:`tuif.models.color.Color`
-    :param border_radius: Border radius, in pixels
-    :type border_raduys: int
+    :param width: Width (in pixels), defaults to 1
+    :type width: int, optional
+    :param color: Color of the border, defaults to :class:`tuif.constaints.colors.black`
+    :type color: :class:`tuif.models.color.Color`, optional
+    :param border_radius: Border radius (in pixels), defaults to 0
+    :type border_radius: int, optional
     """
 
     width: int = 1
