@@ -1,6 +1,9 @@
-from typing import Optional
+from typing import TYPE_CHECKING, Optional
 
 from tuif.models.shape import Shape
+
+if TYPE_CHECKING:
+    from tuif.models.shape import Shape
 
 
 class Constraint:
@@ -19,8 +22,6 @@ class Constraint:
 class Offset(Constraint):
     """Constrint to offset the object relative to where it would naturally go. Will not be applied if :class:`tuif.models.constraints.StaticPosition` is active.
 
-    :param relative: Shape to offset relative to
-    :type relative: :class:`tuif.models.shape.Shape`, optional
     :param top: Offset (in pixels) applied to the top of the object, defaults to 0
     :type top: int, optional
     :param right: Offset (in pixels) applied to the right of the object, defaults to 0
@@ -33,14 +34,13 @@ class Offset(Constraint):
 
     def __init__(
         self,
-        relative: Optional[Shape] = None,
         top: int = 0,
         right: int = 0,
         bottom: int = 0,
         left: int = 0,
     ) -> None:
         """Constructor method."""
-        super().__init__(relative)
+        super().__init__()
         self.top = top
         self.right = right
         self.bottom = bottom
@@ -51,51 +51,35 @@ class Offset(Constraint):
 
 # region: Position
 class Position(Constraint):
-    """Base class for constraints to position objects relative to others.
+    """Base class for constraints to position objects relative to others."""
 
-    :param relative: Shape to position relative to
-    :type relative: :class:`tuif.models.shape.Shape`, optional
-    """
-
-    def __init__(self, relative: Optional[Shape]) -> None:
+    def __init__(self) -> None:
         """Constructor method."""
-        super().__init__(relative)
+        super().__init__()
 
 
 class RelativePosition(Position):
-    """Constraint for positioning the object according to the natural flow of the canvas. :class:`tuif.models.constraints.Offset` will affect the position of the object.
+    """Constraint for positioning the object according to the natural flow of the canvas. :class:`tuif.models.constraints.Offset` will affect the position of the object."""
 
-    :param relative: Shape to position relative to
-    :type relative: :class:`tuif.models.shape.Shape`, optional
-    """
-
-    def __init__(self, relative: Optional[Shape]) -> None:
+    def __init__(self) -> None:
         """Constructor method."""
-        super().__init__(relative)
+        super().__init__()
 
 
 class StaticPosition(Position):
-    """Constraint for positioning the object according to the natural flow of the canvas. :class:`tuif.models.constraints.Offset` will not affect the position of the object.
+    """Constraint for positioning the object according to the natural flow of the canvas. :class:`tuif.models.constraints.Offset` will not affect the position of the object."""
 
-    :param relative: Shape to position relative to
-    :type relative: :class:`tuif.models.shape.Shape`, optional
-    """
-
-    def __init__(self, relative: Optional[Shape]) -> None:
+    def __init__(self) -> None:
         """Constructor method."""
-        super().__init__(relative)
+        super().__init__()
 
 
 class AbsolutePosition(Position):
-    """Constraint for positioning the object regardless of the rest of the state of the canvas. :class:`tuif.models.constraints.Offset` will affect the position of the object.
+    """Constraint for positioning the object regardless of the rest of the state of the canvas. :class:`tuif.models.constraints.Offset` will affect the position of the object."""
 
-    :param relative: Shape to position relative to
-    :type relative: :class:`tuif.models.shape.Shape`, optional
-    """
-
-    def __init__(self, relative: Optional[Shape]) -> None:
+    def __init__(self) -> None:
         """Constructor method."""
-        super().__init__(relative)
+        super().__init__()
 
 
 # endregion: Position
