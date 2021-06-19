@@ -6,14 +6,14 @@ from tuif.models.color import Color
 
 @dataclass
 class Border:
-    """Class for border objects.
+    """Class for managing border objects.
 
-    Keeps track of attributes of borders.
-
-    Args:
-        width (int): Width in pixels.
-        color (Color): Color, as a color object.
-        border_radius (int): Border radius in pixels.
+    :param width: Width, in pixels
+    :type width: int
+    :param color: Color of the border
+    :type color: :class:`tuif.models.color.Color`
+    :param border_radius: Border radius, in pixels
+    :type border_raduys: int
     """
 
     width: int = 1

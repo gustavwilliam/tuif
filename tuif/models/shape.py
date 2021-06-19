@@ -8,24 +8,29 @@ from tuif.models.color import Color
 class Shape:
     """Base class for all shapes.
 
-    Args:
-        fill (Color): Fill-color.
-        border (Border): Border.
+    :param fill: Fill-color of the shape
+    :type fill: :class:`tuif.models.color.Color`
+    :param border: Border of the shape
+    :type border: :class:`tuif.models.border.Border`
     """
+
     fill: Color
     border: Border
 
 
 @dataclass
 class Rectangle(Shape):
-    """Class representing rectangles.
+    """Object representing rectangles.
 
-    Args:
-        Shape: Base class for the shape
-            fill (str): Fill-color.
-            border (Border): Border.
-        width (int): Width in pixels.
-        height (int): Height in pixels.
+    :param fill: Fill-color of the shape
+    :type fill: :class:`tuif.models.color.Color`
+    :param border: Border of the shape
+    :type border: :class:`tuif.models.border.Border`
+    :param width: Width in pixels
+    :type width: int
+    :param height: Height in pixels
+    :type height: Height in pixels
     """
+
     width: int
     height: int
