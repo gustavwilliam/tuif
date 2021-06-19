@@ -1,6 +1,6 @@
-from tuif.models.color import Color
-
 import yaml
+
+from tuif.models.color import Color
 
 
 class Colors:
