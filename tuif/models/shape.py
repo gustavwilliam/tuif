@@ -1,10 +1,11 @@
 from dataclasses import dataclass
+from typing import List
 
 from tuif.models.border import Border
 from tuif.models.color import Color
+from tuif.models.constraints import Constraint, Offset, RelativePosition
 
 
-@dataclass
 class Shape:
     """Base class for all shapes.
 
@@ -14,13 +15,20 @@ class Shape:
     :type border: :class:`tuif.models.border.Border`
     """
 
-    fill: Color
-    border: Border
+    def __init__(self, fill: Color, border: Border) -> None:
+        self.fill = fill
+        self.border = border
+
+        # Default constraints
+        self.constraints: List[Constraint] = [
+            Offset(),
+            RelativePosition(),
+        ]
 
 
 @dataclass
 class Rectangle(Shape):
-    """Object representing rectangles.
+    """Class representing rectangles.
 
     :param fill: Fill-color of the shape
     :type fill: :class:`tuif.models.color.Color`
@@ -29,7 +37,7 @@ class Rectangle(Shape):
     :param width: Width in pixels
     :type width: int
     :param height: Height in pixels
-    :type height: Height in pixels
+    :type height: int
     """
 
     width: int
