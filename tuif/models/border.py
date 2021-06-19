@@ -1,5 +1,6 @@
 from dataclasses import dataclass
 
+from tuif.constants import colors
 from tuif.models.color import Color
 
 
@@ -14,6 +15,7 @@ class Border:
         color (Color): Color, as a color object.
         border_radius (int): Border radius in pixels.
     """
-    width: int
-    color: Color
+
+    width: int = 1
+    color: Color = colors.black
     border_radius: int = 0
