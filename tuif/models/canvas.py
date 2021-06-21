@@ -30,12 +30,12 @@ class Canvas:
         self.objects.insert(index, object_)
 
     # @property
-    # def frame(self) -> List[List[Color]]:
+    # def frame(self) -> List[List[Optional[Color]]]:
     #     """
     #     [
+    #         [None, Color, Color, Color, Color, Color, Color],
+    #         [None, Color, None, None, Color, None, Color],
     #         [Color, Color, Color, Color, Color, Color, Color],
-    #         [Color, Color, Color, Color, Color, Color, Color],
-    #         [Color, Color, Color, Color, Color, Color, Color],
-    #         [Color, Color, Color, Color, Color, Color, Color],
+    #         [None, Color, None, None, Color, None, Color],
     #     ]
     #     """
