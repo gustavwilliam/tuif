@@ -8,6 +8,22 @@ class Color:
     :type name: str
     :param type_: The type of color (foreground or background). Accepts "Fore" for foreground and "Back" for background, defaults to "Back"
     :type type_: str
+    :raises ValueError: :param:`type_` is not a valid color type. Only "Fore" and "Back" are valid
+    :raises ValueError: :param:`name` is not a valid ANSI color name.
+
+    :Example:
+
+    >>> from tuif.models.color import Color
+    >>> white = Color("white")
+    >>> white.ansi
+    '\\x1b[47m'
+
+    >>> from tuif.models.color import Color
+    >>> red_fg = Color("red", "Fore")
+    >>> str(red_fg)
+    'red'
+
+    .. note:: :param:`name` will be converted to uppercase by the constructor method. The `name` attribute is always uppercase, even if the provided `name` parameter is lowercase
     """
 
     def __init__(self, name: str, type_: str = "Back") -> None:
@@ -33,5 +49,12 @@ class Color:
 
         :return: String representation of the color, such as "white" or "red".
         :rtype: str
+
+        :Example:
+
+        >>> from tuif.models.color import Color
+        >>> blue_fg = Color("blue", "Fore")
+        >>> str(blue_fg)
+        'blue'
         """
         return self.name.lower()
