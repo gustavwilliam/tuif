@@ -23,12 +23,12 @@ class Offset(Constraint):
     """Constrint to offset the object relative to where it would naturally go. Will not be applied if :class:`tuif.models.constraints.StaticPosition` is active.
 
     :param top: Offset (in pixels) applied to the top of the object, defaults to 0
-    :type top: int, optional
     :param right: Offset (in pixels) applied to the right of the object, defaults to 0
-    :type right: int, optional
     :param bottom: Offset (in pixels) applied to the bottom of the object, defaults to 0
-    :type bottom: int, optional
     :param left: Offset (in pixels) applied to the left of the object, defaults to 0
+    :type top: int, optional
+    :type right: int, optional
+    :type bottom: int, optional
     :type left: int, optional
     """
 
@@ -104,8 +104,8 @@ class CenterXConstraint(CenterConstraint):
     """Constraint for centering objects on the X-axis.
 
     :param relative: Shape to center relative to
-    :type relative: :class:`tuif.models.shape.Shape`
     :param offset: Offset (in pixels) relative to the object specified in `relative`, defaults to 0
+    :type relative: :class:`tuif.models.shape.Shape`
     :type offset: int, optional
     """
 
@@ -118,8 +118,8 @@ class CenterYConstraint(CenterConstraint):
     """Constraint for centering objects on the Y-axis.
 
     :param relative: Shape to center relative to
-    :type relative: :class:`tuif.models.shape.Shape`
     :param offset: Offset (in pixels) relative to the object specified in `relative`, defaults to 0
+    :type relative: :class:`tuif.models.shape.Shape`
     :type offset: int, optional
     """
 

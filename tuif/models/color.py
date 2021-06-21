@@ -5,8 +5,8 @@ class Color:
     """Class for managing colors.
 
     :param name: ANSI name of the color. Only accepts valid ANSI color names that are supported by colorama
-    :type name: str
     :param type_: The type of color (foreground or background). Accepts "Fore" for foreground and "Back" for background, defaults to "Back"
+    :type name: str
     :type type_: str
     :raises ValueError: :param:`type_` is not a valid color type. Only "Fore" and "Back" are valid
     :raises ValueError: :param:`name` is not a valid ANSI color name.

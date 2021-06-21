@@ -1,7 +1,5 @@
-from dataclasses import dataclass
 from typing import List, Optional
 
-from tuif.constants import colors
 from tuif.models.border import Border
 from tuif.models.color import Color
 from tuif.models.constraints import Constraint, Offset, RelativePosition
@@ -10,17 +8,19 @@ from tuif.models.constraints import Constraint, Offset, RelativePosition
 class Shape:
     """Base class for all shapes.
 
-    :param fill: Fill-color of the shape, defaults to :class:`tuif.constants.colors.white`
-    :type fill: :class:`tuif.models.color.Color`, optional
+    :param bg_color: Fill-color of the shape, defaults to :class:`tuif.constants.colors.WHITE`
     :param border: Border of the shape, default to a border with width 0
+    :type bg_color: :class:`tuif.models.color.Color`, optional
     :type border: :class:`tuif.models.border.Border`, optional
+
+    .. note:: Non-default constraints can be set after the Shape object is created, but not during initialization
     """
 
     def __init__(
-        self, fill: Color = Color(colors.white), border: Border = Border(width=0)
+        self, bg_color: Color = Color("white"), border: Border = Border(width=0)
     ) -> None:
         """Constructor method."""
-        self.fill = fill
+        self.bg_color = bg_color
         self.border = border
 
         # Default constraints
@@ -34,25 +34,28 @@ class Rectangle(Shape):
     """Class representing rectangles.
 
     :param width: Width in pixels
-    :type width: int
     :param height: Height in pixels
-    :type height: int
-    :param fill: Fill-color of the shape
-    :type fill: :class:`tuif.models.color.Color`, optional
+    :param bg_color: Fill-color of the shape
     :param border: Border of the shape
+    :type width: int
+    :type height: int
+    :type bg_color: :class:`tuif.models.color.Color`, optional
     :type border: :class:`tuif.models.border.Border`, optional
+
+    .. note:: Default values for :param:`bg_color` and :param:`border` are the default values for new :class:`tuif.models.shape.Shape` objects
+    .. warning:: Currently both :param:`bg_color` and :param:`border` need to be set for either of them to be set as non-default
     """
 
     def __init__(
         self,
         width: int,
         height: int,
-        fill: Optional[Color] = None,
+        bg_color: Optional[Color] = None,
         border: Optional[Border] = None,
     ) -> None:
         """Constructor method."""
-        if fill and border:
-            super().__init__(fill, border)
+        if bg_color and border:
+            super().__init__(bg_color, border)
         else:
             super().__init__()
 
