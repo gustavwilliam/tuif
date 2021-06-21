@@ -59,7 +59,7 @@ class Position(Constraint):
 
 
 class RelativePosition(Position):
-    """Constraint for positioning the object according to the natural flow of the canvas. :class:`tuif.models.constraints.Offset` will affect the position of the object."""
+    """Constraint for positioning the object according to the natural flow of the canvas. :class:`tuif.models.constraints.Offset` will affect the position of the object. The position of the other elements on the canvas will not be changed by the offset of the object."""
 
     def __init__(self) -> None:
         """Constructor method."""
@@ -67,7 +67,7 @@ class RelativePosition(Position):
 
 
 class StaticPosition(Position):
-    """Constraint for positioning the object according to the natural flow of the canvas. :class:`tuif.models.constraints.Offset` will not affect the position of the object."""
+    """Constraint for positioning the object according to the natural flow of the canvas. :class:`tuif.models.constraints.Offset` will not affect the position of the object. The position of the other elements on the canvas will be changed by the offset of the object."""
 
     def __init__(self) -> None:
         """Constructor method."""
@@ -75,7 +75,7 @@ class StaticPosition(Position):
 
 
 class AbsolutePosition(Position):
-    """Constraint for positioning the object regardless of the rest of the state of the canvas. :class:`tuif.models.constraints.Offset` will affect the position of the object."""
+    """Constraint for positioning the object regardless of the rest of the state of the canvas. :class:`tuif.models.constraints.Offset` will affect the position of the object. The position of the other elements on the canvas will not be changed by the offset of the object."""
 
     def __init__(self) -> None:
         """Constructor method."""
