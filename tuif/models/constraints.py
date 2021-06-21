@@ -22,10 +22,12 @@ class Constraint:
 class Offset(Constraint):
     """Constrint to offset the object relative to where it would naturally go. Will not be applied if :class:`tuif.models.constraints.StaticPosition` is active.
 
+    :param relative: Shape to apply the constraint relative to
     :param top: Offset (in pixels) applied to the top of the object, defaults to 0
     :param right: Offset (in pixels) applied to the right of the object, defaults to 0
     :param bottom: Offset (in pixels) applied to the bottom of the object, defaults to 0
     :param left: Offset (in pixels) applied to the left of the object, defaults to 0
+    :type relative: :class:`tuif.models.shape.Shape`, optional
     :type top: int, optional
     :type right: int, optional
     :type bottom: int, optional
@@ -34,13 +36,14 @@ class Offset(Constraint):
 
     def __init__(
         self,
+        relative: Optional[Shape] = None,
         top: int = 0,
         right: int = 0,
         bottom: int = 0,
         left: int = 0,
     ) -> None:
         """Constructor method."""
-        super().__init__()
+        super().__init__(relative)
         self.top = top
         self.right = right
         self.bottom = bottom
@@ -75,11 +78,23 @@ class StaticPosition(Position):
 
 
 class AbsolutePosition(Position):
-    """Constraint for positioning the object regardless of the rest of the state of the canvas. :class:`tuif.models.constraints.Offset` will affect the position of the object. The position of the other elements on the canvas will not be changed by the offset of the object."""
+    """Constraint for positioning the object regardless of the rest of the state of the canvas. :class:`tuif.models.constraints.Offset` will affect the position of the object. The position of the other elements on the canvas will not be changed by the offset of the object.
 
-    def __init__(self) -> None:
+    :param relative: Shape to apply the constraint relative to
+    :param x_pos: Absolute x-position relative to :param:`relative`, defaults to 0
+    :param y_pos: Absolute y-position relative to :param:`relative`, defaults to 0
+    :type relative: :class:`tuif.models.shape.Shape`
+    :type x_pos: int, optional
+    :type y_pos: int, optional
+    """
+
+    def __init__(
+        self, relative: Shape, x_pos: Optional[int] = 0, y_pos: Optional[int] = 0
+    ) -> None:
         """Constructor method."""
-        super().__init__()
+        super().__init__(relative)
+        self.x_pos = x_pos
+        self.y_pos = y_pos
 
 
 # endregion: Position
