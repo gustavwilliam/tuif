@@ -1,6 +1,8 @@
+from __future__ import annotations  # Allow `Shape` type hints without quotes
+
 from typing import TYPE_CHECKING, Optional
 
-if TYPE_CHECKING:
+if TYPE_CHECKING:  # Prevents circular imports
     from tuif.models.shape import Shape
 
 
