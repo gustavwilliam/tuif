@@ -20,7 +20,7 @@ class Canvas:
         self.objects.append(object_)
 
     def insert(self, object_: Shape, index: int) -> None:
-        """Adds the provided object to the top of the canvas.
+        """Adds the provided object to the specified index of the canvas.
 
         :param object_: Object/shape to add to the canvas
         :param index: Index for where in the canvas the object should be inserted. 0 is the very top of the canvas
