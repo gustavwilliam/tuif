@@ -1,7 +1,5 @@
 from typing import TYPE_CHECKING, Optional
 
-from tuif.models.shape import Shape
-
 if TYPE_CHECKING:
     from tuif.models.shape import Shape
 
