@@ -104,8 +104,8 @@ class CenterConstraint(Constraint):
     """Base class for constraints to center objects.
 
     :param relative: Shape to center relative to
-    :type relative: :class:`tuif.models.shape.Shape`
     :param offset: Offset (in pixels) relative to the object specified in `relative`, defaults to 0
+    :type relative: :class:`tuif.models.shape.Shape`
     :type offset: int, optional
     """
 
