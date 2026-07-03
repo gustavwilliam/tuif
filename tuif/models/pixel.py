@@ -1,18 +1,16 @@
 from typing import Optional
-from image import Camera
 
-
-from chalk.modern.chalkcolor import ChalkColor
+from tuif.models.color import Color
 
 
 class Pixel:
     def __init__(self, character: str = " ", color: Optional[Color] = None) -> None:
         self.character = character
-        self.chalkcolor = chalkcolor
+        self.color = color
 
     @property
     def ansi_string(self) -> str:
-        if not self.chalkcolor:
+        if not self.color:
             return self.character
 
-        return self.chalkcolor.ansi + self.character + self.chalkcolor.colorama_type.RESET
+        return self.color.ansi + self.character + self.color.colorama_type.RESET
